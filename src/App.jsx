@@ -5,14 +5,14 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import Template from "./components/Template";
 import { ThemeProvider } from "./components/ThemeProvider";
-import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
-import Financing from "./components/pages/Financing";
-import NotFound from "./components/pages/NotFound";
-import Privacy from "./components/pages/Privacy";
-import Projects from "./components/pages/Projects";
-import Terms from "./components/pages/Terms";
-import ThankYou from "./components/pages/ThankYou";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Financing from "./pages/Financing";
+import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Projects from "./pages/Projects";
+import Terms from "./pages/Terms";
+import ThankYou from "./pages/ThankYou";
 
 function App() {
   return (

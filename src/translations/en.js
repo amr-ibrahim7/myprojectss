@@ -9,4 +9,7 @@ export default {
     Mobile_Nav: "Mobile Navigation",
     Mobile_Descr: "Navigate through the mobile menu to explore the site.",
   },
+  page_privacy: {
+    HowـHandleـPersonal: "How We Handle Your Personal Data",
+  },
 };

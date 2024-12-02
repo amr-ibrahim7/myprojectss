@@ -1,11 +1,5 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import React, { useContext, useEffect, useState } from "react";
+
 import { useLocation } from "react-router-dom";
 import { LanguageContext } from "../context/LanguageContext";
 import LanguageToggle from "./LanguageToggle";

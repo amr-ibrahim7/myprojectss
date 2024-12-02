@@ -9,4 +9,7 @@ export default {
     Mobile_Nav: "فتح القائمة الجانبية",
     Mobile_Descr: "تصفح القائمة الجانبية للتنقل في الموقع",
   },
+  page_privacy: {
+    HowـHandleـPersonal: "كيف نتعامل مع بياناتك الشخصية",
+  },
 };

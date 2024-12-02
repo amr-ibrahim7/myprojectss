@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import useScrollprogress from "./hooks/useScrollprogress";
+import useScrollprogress from "../hooks/useScrollprogress";
 
 const variants = {
   hidden: { opacity: 0 },
