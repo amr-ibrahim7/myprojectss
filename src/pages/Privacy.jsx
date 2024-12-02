@@ -31,7 +31,7 @@ function Privacy() {
   if (error) return <div>{error}</div>;
   return (
     <div>
-      <h1>{translations.page_privacy.HowـHandleـPersonal}</h1>
+      <h1>{translations.pages.page_privacy.HowـHandleـPersonal}</h1>
       {privacyData && (
         <div className="privacy-content">
           {privacyData.data.split("\n").map((paragraph, index) => (
