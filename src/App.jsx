@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import BackToTopBtn from "./components/BackToTopBtn";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Loader from "./components/Loader";
 import { ThemeProvider } from "./components/ThemeProvider";
+import WhatsAppIcon from "./components/WhatsAppIcon";
+import { LanguageContext } from "./context/LanguageContext";
 
 // Lazy load components
 const MainContent = React.lazy(() =>
@@ -17,8 +21,39 @@ const NotFound = React.lazy(() => import("/src/pages/NotFound.jsx"));
 const Terms = React.lazy(() => import("/src/pages/Terms.jsx"));
 const Privacy = React.lazy(() => import("/src/pages/Privacy.jsx"));
 const ThankYou = React.lazy(() => import("/src/pages/ThankYou.jsx"));
+const Blog = React.lazy(() => import("/src/pages/Blog.jsx"));
 
 function App() {
+  const [globalData, setGlobalData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const { language, translations, fetchDynamicData } =
+    useContext(LanguageContext);
+
+  useEffect(() => {
+    async function fetchAllData() {
+      try {
+        setIsLoading(true);
+        const homeData = await fetchDynamicData("home", language);
+        setGlobalData(homeData);
+      } catch (error) {
+        console.error("Error fetching global data", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchAllData();
+  }, [language]);
+
+  if (isLoading) {
+    return (
+      <ThemeProvider attribute="class" defaultTheme="dark">
+        <div className="flex justify-center items-center min-h-screen">
+          <Loader />
+        </div>
+      </ThemeProvider>
+    );
+  }
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <Header />
@@ -32,7 +67,7 @@ function App() {
           }
         />
         <Route
-          path="/about"
+          path="/about-us"
           element={
             <Template>
               <About />
@@ -40,7 +75,7 @@ function App() {
           }
         />
         <Route
-          path="/projects"
+          path="/our-service"
           element={
             <Template>
               <Projects />
@@ -48,10 +83,18 @@ function App() {
           }
         />
         <Route
-          path="/contact"
+          path="/contact-us"
           element={
             <Template>
               <Contact />
+            </Template>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <Template>
+              <Blog />
             </Template>
           }
         />
@@ -96,7 +139,13 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      <BackToTopBtn language={language} />
+      <WhatsAppIcon data={globalData} language={language} />
+      <Footer
+        data={globalData}
+        translations={translations}
+        language={language}
+      />
     </ThemeProvider>
   );
 }

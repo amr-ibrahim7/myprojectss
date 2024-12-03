@@ -82,9 +82,15 @@ const Nav = ({
   const links = useMemo(
     () => [
       { path: "/", name: translations.nav?.home || "الرئيسية" },
-      { path: "/about", name: translations.nav?.about || "من نحن" },
-      { path: "/projects", name: translations.nav?.projects || "خدماتنا" },
-      { path: "/contact", name: translations.nav?.contact || "تواصل معنا" },
+      { path: "/about-us", name: translations.nav?.about_us || "من نحن" },
+      {
+        path: "/our-service",
+        name: translations.nav?.our_service || "خدماتنا",
+      },
+      {
+        path: "/contact-us",
+        name: translations.nav?.contact_us || "تواصل معنا",
+      },
     ],
     [translations]
   ); // يتم إعادة إنشاء المصفوفة فقط عند تغيير الترجمة
