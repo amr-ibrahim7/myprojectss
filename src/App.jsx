@@ -62,7 +62,7 @@ function App() {
           path="/"
           element={
             <Template>
-              <MainContent />
+              <MainContent translations={translations} language={language} />
             </Template>
           }
         />
@@ -70,7 +70,7 @@ function App() {
           path="/about-us"
           element={
             <Template>
-              <About />
+              <About translations={translations} language={language} />
             </Template>
           }
         />
@@ -78,7 +78,7 @@ function App() {
           path="/our-service"
           element={
             <Template>
-              <Projects />
+              <Projects translations={translations} language={language} />
             </Template>
           }
         />
@@ -110,7 +110,7 @@ function App() {
           path="/terms"
           element={
             <Template>
-              <Terms />
+              <Terms translations={translations} language={language} />
             </Template>
           }
         />
@@ -118,7 +118,7 @@ function App() {
           path="/privacy-policy"
           element={
             <Template>
-              <Privacy />
+              <Privacy translations={translations} language={language} />
             </Template>
           }
         />
@@ -126,7 +126,7 @@ function App() {
           path="/thank-you"
           element={
             <Template>
-              <ThankYou />
+              <ThankYou translations={translations} language={language} />
             </Template>
           }
         />
@@ -134,7 +134,7 @@ function App() {
           path="*"
           element={
             <Template>
-              <NotFound />
+              <NotFound translations={translations} language={language} />
             </Template>
           }
         />

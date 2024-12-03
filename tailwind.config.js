@@ -8,6 +8,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        arrowGo: "arrowGo 0.4s linear", // إضافة الأنميشن هنا
+      },
+      keyframes: {
+        arrowGo: {
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(200%)" },
+          "51%": { transform: "translateX(-200%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

@@ -87,12 +87,15 @@ body {
     @apply bg-background text-foreground; 
   }
 }
+
 .h1 {
   @apply text-6xl xl:text-[72px] xl:leading-[80px] tracking-[-2px] font-bold mb-5 mt-4;
 }
+
 .marquee-container {
   direction: ltr;
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -101,21 +104,34 @@ body {
     opacity: 1;
   }
 }
-@keyframes rotate {
+
+@keyframes arrowGo {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200%);
+  }
+  51% {
+    transform: translateX(-200%);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateX(0);
   }
 }
-/* استخدمها في Tailwind */
+
+.group-hover .animate-arrowGo {
+  animation: arrowGo 0.4s linear !important;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
 .animate-rotate {
   animation: rotate 1s linear infinite;
 }
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -133,6 +149,11 @@ body {
     transform: rotate(0deg);
   }
 }
+
 .rotate-animation {
   animation: rotate 1s infinite; 
 }
+
+
+
+
