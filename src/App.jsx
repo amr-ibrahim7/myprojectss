@@ -2,17 +2,21 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import Template from "./components/Template";
 import { ThemeProvider } from "./components/ThemeProvider";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Financing from "./pages/Financing";
-import NotFound from "./pages/NotFound";
-import Privacy from "./pages/Privacy";
-import Projects from "./pages/Projects";
-import Terms from "./pages/Terms";
-import ThankYou from "./pages/ThankYou";
+
+// Lazy load components
+const MainContent = React.lazy(() =>
+  import(/* webpackPrefetch: true */ "/src/components/MainContent.jsx")
+);
+const Template = React.lazy(() => import("/src/components/Template.jsx"));
+const About = React.lazy(() => import("/src/pages/About.jsx"));
+const Contact = React.lazy(() => import("/src/pages/Contact.jsx"));
+const Financing = React.lazy(() => import("/src/pages/Financing.jsx"));
+const Projects = React.lazy(() => import("/src/pages/Projects.jsx"));
+const NotFound = React.lazy(() => import("/src/pages/NotFound.jsx"));
+const Terms = React.lazy(() => import("/src/pages/Terms.jsx"));
+const Privacy = React.lazy(() => import("/src/pages/Privacy.jsx"));
+const ThankYou = React.lazy(() => import("/src/pages/ThankYou.jsx"));
 
 function App() {
   return (
