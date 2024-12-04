@@ -4,9 +4,11 @@ import BackToTopBtn from "./components/BackToTopBtn";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loader from "./components/Loader";
+import SEO from "./components/SEO";
 import { ThemeProvider } from "./components/ThemeProvider";
 import WhatsAppIcon from "./components/WhatsAppIcon";
 import { LanguageContext } from "./context/LanguageContext";
+import { getMetaTags } from "./utills/getMetaTags";
 
 // Lazy load components
 const MainContent = React.lazy(() =>
@@ -21,13 +23,14 @@ const NotFound = React.lazy(() => import("/src/pages/NotFound.jsx"));
 const Terms = React.lazy(() => import("/src/pages/Terms.jsx"));
 const Privacy = React.lazy(() => import("/src/pages/Privacy.jsx"));
 const ThankYou = React.lazy(() => import("/src/pages/ThankYou.jsx"));
-const Blog = React.lazy(() => import("/src/pages/Blog.jsx"));
+// const Blog = React.lazy(() => import("/src/pages/Blog.jsx"));
 
 function App() {
   const [globalData, setGlobalData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { language, translations, fetchDynamicData } =
     useContext(LanguageContext);
+  const metaTags = getMetaTags(language);
 
   useEffect(() => {
     async function fetchAllData() {
@@ -56,7 +59,8 @@ function App() {
   }
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
-      <Header />
+      <SEO metaTags={metaTags} />
+      <Header translations={translations} language={language} />
       <Routes>
         <Route
           path="/"
@@ -86,23 +90,23 @@ function App() {
           path="/contact-us"
           element={
             <Template>
-              <Contact />
+              <Contact translations={translations} language={language} />
             </Template>
           }
         />
-        <Route
+        {/* <Route
           path="/blog"
           element={
             <Template>
               <Blog />
             </Template>
           }
-        />
+        /> */}
         <Route
           path="/financing"
           element={
             <Template>
-              <Financing />
+              <Financing translations={translations} language={language} />
             </Template>
           }
         />

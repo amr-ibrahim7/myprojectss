@@ -5,11 +5,22 @@ import enTranslations from "../translations/en";
 export const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("ar");
-  const [translations, setTranslations] = useState(arTranslations);
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("appLanguage") || "ar";
+  });
+
+  const [translations, setTranslations] = useState(
+    language === "ar" ? arTranslations : enTranslations
+  );
   const [dynamicData, setDynamicData] = useState(null);
 
-  // جلب البيانات الديناميكية بشكل عام
+  // Update localStorage and document language when language changes
+  useEffect(() => {
+    localStorage.setItem("appLanguage", language);
+    document.documentElement.lang = language;
+  }, [language]);
+
+  //
   const fetchDynamicData = async (endpoint, currentLanguage) => {
     try {
       const data = await fetchData(endpoint, currentLanguage);
@@ -26,7 +37,7 @@ export function LanguageProvider({ children }) {
     const newLanguage = language === "ar" ? "en" : "ar";
     setLanguage(newLanguage);
     setTranslations(newLanguage === "ar" ? arTranslations : enTranslations);
-    document.documentElement.lang = newLanguage;
+    // document.documentElement.lang = newLanguage;
     fetchDynamicData(newLanguage);
   };
 
