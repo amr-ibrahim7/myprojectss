@@ -42,7 +42,9 @@ const FAQSection = ({ translations, language, data }) => {
                 >
                   <button
                     onClick={() => toggleQuestion(index)}
-                    className="flex justify-between items-center w-full px-4 py-2 text-left text-sm font-medium text-gray-800 dark:text-gray-200 focus:outline-none"
+                    className={`flex justify-between items-center w-full px-4 py-2 text-sm font-medium 
+                      ${language === "ar" ? "text-right" : "text-left"} 
+                      text-gray-800 dark:text-gray-200 focus:outline-none`}
                   >
                     <span className="text-base dark:text-white font-semibold">
                       {item.title}
