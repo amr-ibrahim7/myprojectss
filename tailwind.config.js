@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import animate from "tailwindcss-animate";
+import animatecss from "tailwindcss-animatecss";
+
 export default {
   darkMode: ["class"],
   content: [
@@ -9,7 +12,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        arrowGo: "arrowGo 0.4s linear", // إضافة الأنميشن هنا
+        arrowGo: "arrowGo 0.4s linear",
       },
       keyframes: {
         arrowGo: {
@@ -71,6 +74,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animatecss"), require("tailwindcss-animate")],
+
+  plugins: [animatecss, animate],
 };
 // require("tailwindcss-animate");
