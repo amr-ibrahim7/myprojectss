@@ -1,5 +1,7 @@
 const BASE_URL = "https://backend.trustaqar.com/api";
 
+// form submit order store
+
 export const storeOrderForm = async (formData) => {
   const form = new FormData();
   Object.keys(formData).forEach((key) => {

@@ -1,15 +1,15 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 
-const AboutComponent = ({ translations, language }) => {
+const AboutComponent = ({ translations, language, data }) => {
   const isRtl = language === "ar";
 
-  // قائمة النقاط
-  const points = [
-    translations.mainContent.aboutSection.p1about,
-    translations.mainContent.aboutSection.p2about,
-    translations.mainContent.aboutSection.p3about,
-  ];
+  // Use site_advantages from backend data
+  const points =
+    data?.data?.site_advantages?.map((item) => ({
+      id: item.id,
+      content: item.content,
+    })) || [];
 
   // قائمة الصور
   const images = useMemo(
@@ -29,7 +29,7 @@ const AboutComponent = ({ translations, language }) => {
         } hidden md:block`,
       },
     ],
-    [isRtl] // سيعيد إنشاء الصور عند تغيير isRtl
+    [isRtl]
   );
 
   return (
@@ -49,13 +49,14 @@ const AboutComponent = ({ translations, language }) => {
                 </h2>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                {translations.mainContent.aboutSection.experience}
+                {/* {translations.mainContent.aboutSection.experience} */}
+                {data?.data.about}
               </p>
 
               <ul className="mb-8 space-y-3">
-                {points.map((point, index) => (
+                {points.map((point) => (
                   <li
-                    key={index}
+                    key={point.id}
                     className={`relative ${
                       isRtl ? "pr-8" : "pl-8"
                     } font-semibold`}
@@ -67,7 +68,7 @@ const AboutComponent = ({ translations, language }) => {
                     >
                       &#10003;
                     </span>
-                    {point}
+                    {point.content}
                   </li>
                 ))}
               </ul>

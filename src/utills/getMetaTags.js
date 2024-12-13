@@ -9,7 +9,7 @@ export const getMetaTags = (language) => ({
       : "TRUST Real Estate helps investors and individuals achieve their real estate goals through innovative financing solutions and specialized services in real estate finance.",
   keywords:
     language === "ar"
-      ? "شركة دار السندس, تمويل عقاري, شراء عقارات, حلول تمويلية, مستثمرين, عقارات السعودية"
+      ? "شركة تراست العقارية, تمويل عقاري, شراء عقارات, حلول تمويلية, مستثمرين, عقارات السعودية"
       : "TRUST, Real Estate Finance, Buy Properties, Financing Solutions, Investors, Real Estate Saudi Arabia",
   ogTitle: language === "ar" ? "شركة تراست العقارية" : "TRUST Real Estate",
   ogDescription:

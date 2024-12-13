@@ -6,14 +6,22 @@ import FAQSection from "./FAQSection";
 import HeroSection from "./HeroSection";
 import MarqueeSwiper from "./MarqueeSwiper";
 
-function MainContent({ translations, language }) {
+function MainContent({ translations, language, data }) {
   return (
     <>
-      <HeroSection translations={translations} />
-      <MarqueeSwiper translations={translations} language={language} />
-      <AboutComponent translations={translations} language={language} />
+      <HeroSection translations={translations} language={language} />
+      <MarqueeSwiper
+        translations={translations}
+        language={language}
+        data={data}
+      />
+      <AboutComponent
+        translations={translations}
+        language={language}
+        data={data}
+      />
       <CatalogueSection translations={translations} language={language} />
-      <FAQSection translations={translations} language={language} />
+      <FAQSection translations={translations} language={language} data={data} />
       <CatalogSwiperSection translations={translations} language={language} />
     </>
   );

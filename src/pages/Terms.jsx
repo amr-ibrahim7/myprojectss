@@ -7,23 +7,24 @@ const Terms = ({ translations, language }) => {
   const metaTags =
     language === "en"
       ? {
-          title: "Terms and Conditions - Dar Al-Sundus Real Estate",
+          title: "Terms and Conditions - TRUST Real Estate",
           description:
-            "Discover the terms and conditions governing the innovative real estate financing services offered by Dar Al-Sundus Real Estate in Saudi Arabia.",
+            "Discover the terms and conditions governing the innovative real estate financing services offered by TRUST Real Estate in Saudi Arabia.",
           keywords:
-            "Terms, Conditions, Real Estate Finance, Property Purchase, Dar Al-Sundus, Saudi Arabia",
-          ogTitle: "Terms and Conditions - Dar Al-Sundus Real Estate",
+            "Terms, Conditions, Real Estate Finance, Property Purchase, TRUST, Saudi Arabia",
+          ogTitle: "Terms and Conditions - TRUST Real Estate",
           ogDescription:
-            "Learn about the terms and conditions for using Dar Al-Sundus Real Estate's services.",
-          twitterTitle: "Terms and Conditions - Dar Al-Sundus Real Estate",
+            "Learn about the terms and conditions for using TRUST Real Estate's services.",
+          twitterTitle: "Terms and Conditions - TRUST Real Estate",
           twitterDescription:
-            "Learn about the terms and conditions for using Dar Al-Sundus Real Estate's services.",
+            "Learn about the terms and conditions for using TRUST Real Estate's services.",
         }
       : {
           title: "الشروط والأحكام - شركة تراست العقارية",
           description:
             "الشروط والأحكام الخاصة بشركة تراست العقارية في تقديم خدمات التمويل العقاري.",
-          keywords: "الشروط, الأحكام, تمويل عقاري, شراء عقارات, دار السندس",
+          keywords:
+            "الشروط, الأحكام, تمويل عقاري, شراء عقارات,  تراست العقارية ",
           ogTitle: "الشروط والأحكام - شركة تراست العقارية",
           ogDescription:
             "تعرّف على الشروط والأحكام الخاصة بشركة تراست العقارية.",

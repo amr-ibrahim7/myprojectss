@@ -9,21 +9,21 @@ const ThankYou = ({ translations, language }) => {
   const metaTags =
     language === "en"
       ? {
-          title: "Thank You - Dar Al-Sundus Real Estate",
+          title: "Thank You - TRUST Real Estate",
           description:
             "We appreciate your choice! Your inquiry has been received.",
-          keywords: "Thank You, Dar Al-Sundus, Real Estate, Inquiry, Success",
-          ogTitle: "Thank You for Choosing Us - Dar Al-Sundus Real Estate",
+          keywords: "Thank You, TRUST, Real Estate, Inquiry, Success",
+          ogTitle: "Thank You for Choosing Us - TRUST Real Estate",
           ogDescription:
             "Thank you for your inquiry! We appreciate your trust.",
-          twitterTitle: "Thank You - Dar Al-Sundus Real Estate",
+          twitterTitle: "Thank You - TRUST Real Estate",
           twitterDescription:
             "Thank you for your inquiry. We will get back to you soon.",
         }
       : {
           title: "شكراً - تراست العقارية",
           description: "نحن نقدر اختيارك لنا! تم استلام استفسارك.",
-          keywords: "شكراً, دار السندس, العقارات, استفسار, نجاح",
+          keywords: "شكراً,  تراست العقارية , العقارات, استفسار, نجاح",
           ogTitle: "شكراً لاختيارك لنا - تراست العقارية",
           ogDescription: "شكراً لاستفسارك! نحن نقدر ثقتك.",
           twitterTitle: "شكراً - تراست العقارية",

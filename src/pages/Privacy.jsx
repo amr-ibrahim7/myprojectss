@@ -57,23 +57,24 @@ const Privacy = ({ translations, language }) => {
   const metaTags =
     language === "en"
       ? {
-          title: "Privacy Policy - Dar Al-Sundus Real Estate",
+          title: "Privacy Policy - TRUST Real Estate",
           description:
-            "Learn about how Dar Al-Sundus Real Estate handles your privacy and personal data with the utmost care and security.",
+            "Learn about how TRUST Real Estate handles your privacy and personal data with the utmost care and security.",
           keywords:
-            "Privacy, Data Protection, Personal Information, Dar Al-Sundus, Saudi Arabia",
-          ogTitle: "Privacy Policy - Dar Al-Sundus Real Estate",
+            "Privacy, Data Protection, Personal Information, TRUST, Saudi Arabia",
+          ogTitle: "Privacy Policy - TRUST Real Estate",
           ogDescription:
-            "Learn about how Dar Al-Sundus Real Estate handles your privacy and personal data.",
-          twitterTitle: "Privacy Policy - Dar Al-Sundus Real Estate",
+            "Learn about how TRUST Real Estate handles your privacy and personal data.",
+          twitterTitle: "Privacy Policy - TRUST Real Estate",
           twitterDescription:
-            "Learn about how Dar Al-Sundus Real Estate handles your privacy and personal data.",
+            "Learn about how TRUST Real Estate handles your privacy and personal data.",
         }
       : {
           title: "سياسة الخصوصية - شركة تراست العقارية",
           description:
             "تعرف على كيفية تعامل شركة تراست العقارية مع خصوصيتك وبياناتك الشخصية بعناية وأمان.",
-          keywords: "الخصوصية, حماية البيانات, المعلومات الشخصية, دار السندس",
+          keywords:
+            "الخصوصية, حماية البيانات, المعلومات الشخصية,  تراست العقارية ",
           ogTitle: "سياسة الخصوصية - شركة تراست العقارية",
           ogDescription:
             "تعرف على كيفية تعامل شركة تراست العقارية مع خصوصيتك وبياناتك الشخصية.",

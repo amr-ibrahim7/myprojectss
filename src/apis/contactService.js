@@ -3,6 +3,8 @@
 const BASE_URL = "https://backend.trustaqar.com/api";
 
 // إرسال نموذج التواصل
+
+// form submit connection
 export const submitContactForm = async (formData) => {
   const form = new FormData();
   Object.keys(formData).forEach((key) => {

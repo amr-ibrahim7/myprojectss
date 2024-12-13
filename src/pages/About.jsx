@@ -25,15 +25,15 @@ function About({ translations, language }) {
   const metaTags =
     language === "en"
       ? {
-          title: "About Us - Dar Al-Sundus Real Estate",
+          title: "About Us - TRUST Real Estate",
           description:
-            "Dar Al-Sundus Real Estate provides innovative financing solutions for property purchases in Saudi Arabia.",
+            "TRUST Real Estate provides innovative financing solutions for property purchases in Saudi Arabia.",
           keywords:
-            "Dar Al-Sundus, Real Estate Finance, Property Purchase, Financing Solutions, Investors, Saudi Real Estate",
-          ogTitle: "Dar Al-Sundus Real Estate",
+            "TRUST, Real Estate Finance, Property Purchase, Financing Solutions, Investors, Saudi Real Estate",
+          ogTitle: "TRUST Real Estate",
           ogDescription:
             "We provide innovative financing solutions to facilitate the property purchase process and achieve your goals.",
-          twitterTitle: "Dar Al-Sundus Real Estate",
+          twitterTitle: "TRUST Real Estate",
           twitterDescription:
             "We provide innovative financing solutions to facilitate the property purchase process and achieve your goals.",
         }
@@ -42,7 +42,7 @@ function About({ translations, language }) {
           description:
             "شركة تراست العقارية تقدم حلول تمويلية مبتكرة لشراء العقارات في السعودية.",
           keywords:
-            "شركة دار السندس, تمويل عقاري, شراء عقارات, حلول تمويلية, مستثمرين, عقارات السعودية",
+            "شركة تراست العقارية , تمويل عقاري, شراء عقارات, حلول تمويلية, مستثمرين, عقارات السعودية",
           ogTitle: "شركة تراست العقارية",
           ogDescription:
             "نحن نقدم حلول تمويلية مبتكرة لتسهيل عملية شراء العقارات وتحقيق أهدافك.",

@@ -161,25 +161,24 @@ const Financing = ({ translations, language }) => {
   const metaTags =
     language === "en"
       ? {
-          title: "Apply for Your Financing Now - Dar Al-Sundus Real Estate",
+          title: "Apply for Your Financing Now - TRUST Real Estate",
           description:
-            "Take the first step towards making your property dream or project a reality with Dar Al-Sundus Real Estate's innovative financing solutions. Apply for your financing today.",
+            "Take the first step towards making your property dream or project a reality with TRUST Real Estate's innovative financing solutions. Apply for your financing today.",
           keywords:
-            "Dar Al-Sundus, Apply for Financing, Real Estate Financing, Property Loans, Project Financing, Saudi Real Estate, Financing Solutions",
-          ogTitle: "Apply for Your Financing Now - Dar Al-Sundus Real Estate",
+            "TRUST, Apply for Financing, Real Estate Financing, Property Loans, Project Financing, Saudi Real Estate, Financing Solutions",
+          ogTitle: "Apply for Your Financing Now - TRUST Real Estate",
           ogDescription:
-            "Take the first step towards making your property dream or project a reality with Dar Al-Sundus Real Estate's innovative financing solutions. Apply for your financing today.",
-          twitterTitle:
-            "Apply for Your Financing Now - Dar Al-Sundus Real Estate",
+            "Take the first step towards making your property dream or project a reality with TRUST Real Estate's innovative financing solutions. Apply for your financing today.",
+          twitterTitle: "Apply for Your Financing Now - TRUST Real Estate",
           twitterDescription:
-            "Take the first step towards making your property dream or project a reality with Dar Al-Sundus Real Estate's innovative financing solutions. Apply for your financing today.",
+            "Take the first step towards making your property dream or project a reality with TRUST Real Estate's innovative financing solutions. Apply for your financing today.",
         }
       : {
           title: "اطلب تمويلك الآن - شركة تراست العقارية",
           description:
             "ابدأ الخطوة الأولى نحو تحقيق حلمك العقاري أو مشروعك مع حلول التمويل المبتكرة من شركة تراست العقارية. قدم طلب التمويل الآن.",
           keywords:
-            "شركة دار السندس, طلب تمويل, تمويل عقاري, قروض عقارية, تمويل مشاريع, عقارات السعودية, حلول تمويلية",
+            "شركة  تراست العقارية, طلب تمويل, تمويل عقاري, قروض عقارية, تمويل مشاريع, عقارات السعودية, حلول تمويلية",
           ogTitle: "اطلب تمويلك الآن - شركة تراست العقارية",
           ogDescription:
             "ابدأ الخطوة الأولى نحو تحقيق حلمك العقاري أو مشروعك مع حلول التمويل المبتكرة من شركة تراست العقارية. قدم طلب التمويل الآن.",

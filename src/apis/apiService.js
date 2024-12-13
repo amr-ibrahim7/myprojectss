@@ -3,6 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://backend.trustaqar.com/api";
 
 // دالة جلب البيانات العامة
+// data fetch data
 export const fetchData = async (endpoint, language, params = {}) => {
   try {
     const response = await axios.get(`${BASE_URL}/${endpoint}`, {

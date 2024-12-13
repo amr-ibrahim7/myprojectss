@@ -154,6 +154,22 @@ body {
   animation: rotate 1s infinite; 
 }
 
+.scale-y-0 {
+  transform: scaleY(0);
+}
+.scale-y-100 {
+  transform: scaleY(1);
+}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-100 {
+  opacity: 1;
+}
+.origin-top {
+  transform-origin: top;
+}
+
 
 
 

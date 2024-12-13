@@ -66,7 +66,11 @@ function App() {
           path="/"
           element={
             <Template>
-              <MainContent translations={translations} language={language} />
+              <MainContent
+                translations={translations}
+                language={language}
+                data={globalData}
+              />
             </Template>
           }
         />

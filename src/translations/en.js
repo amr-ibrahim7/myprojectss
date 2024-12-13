@@ -19,7 +19,7 @@ export default {
       fund_your_dreams: "Fund your dreams!",
     },
     marqueeSwiperSection: {
-      dar_alsondos: "DAR AL-SONDOS",
+      dar_alsondos: "TRUST",
       our_partners: "Our Partners in Reaching the Pinnacle",
       we_take:
         "We take pride in being part of the incredible success stories of our clients.",
@@ -34,7 +34,7 @@ export default {
         "Affordable repayment plans with exclusive benefits and comprehensive insurance to ensure your peace of mind.",
       p3about:
         "Free Takaful insurance and exceptional terms that give you peace of mind throughout the financing period.",
-      experience: `Dar Al-Sundus connects investors with individuals looking to purchase real estate by offering innovative financing solutions. We simplify the process of obtaining the right financing to empower our clients in achieving their real estate goals. Our specialized team brings extensive expertise in mortgage financing to ensure the best results.`,
+      experience: `TRUST connects investors with individuals looking to purchase real estate by offering innovative financing solutions. We simplify the process of obtaining the right financing to empower our clients in achieving their real estate goals. Our specialized team brings extensive expertise in mortgage financing to ensure the best results.`,
       getInTouch: "GET IN TOUCH",
     },
     catalogueSection: {
@@ -116,8 +116,8 @@ export default {
     catalogswipersection: {
       peace: "Peace of Mind Starts Here",
       discover:
-        "Discover how Dar Al-Sundus helps you design and build your dream home to the highest quality standards.",
-      we_believe: `At Dar Al-Sundus
+        "Discover how TRUST helps you design and build your dream home to the highest quality standards.",
+      we_believe: `At TRUST
 We believe building your dream home requires a clear vision and exceptional expertise. Our dedicated team ensures high-quality standards at every step of the construction process. Enjoy our tailored services that save you time and effort while delivering the best results.
 `,
       seamless_ownership:
@@ -173,17 +173,17 @@ We believe building your dream home requires a clear vision and exceptional expe
     page_about: {
       Whos: "Who We Are?",
       We_are:
-        "We are Dar Al Sondos, connecting investors and customers with confidence to create distinctive investment opportunities that fulfill aspirations.",
-      Dar_AlSondos_facilitates: `Dar Al-Sondos facilitates the path between investors and customers looking to own real estate, committed to providing smart financing solutions that make its customers' dreams come true with confidence and perfection.`,
-      At_Dar_AlSondos: `At Dar Al-Sondos, we believe that the journey of owning a property should be seamless and straightforward. We offer innovative financing solutions that combine professionalism and flexibility to meet the needs of our customers, by providing easy and convenient financing for the purchase of real estate.`,
+        "We are TRUST, connecting investors and customers with confidence to create distinctive investment opportunities that fulfill aspirations.",
+      Dar_AlSondos_facilitates: `TRUST facilitates the path between investors and customers looking to own real estate, committed to providing smart financing solutions that make its customers' dreams come true with confidence and perfection.`,
+      At_Dar_AlSondos: `At TRUST, we believe that the journey of owning a property should be seamless and straightforward. We offer innovative financing solutions that combine professionalism and flexibility to meet the needs of our customers, by providing easy and convenient financing for the purchase of real estate.`,
       We_act:
-        "We act as a liaison between investors and clients, and endeavor to provide comprehensive financial advice to help you make the best decision. With our specialized real estate finance team, we support you every step of the way, ensuring the best deals that suit your investment goals. At Dar Al Sondos, we put your trust at the heart of our priorities and work tirelessly to ensure the success of your real estate investments.",
+        "We act as a liaison between investors and clients, and endeavor to provide comprehensive financial advice to help you make the best decision. With our specialized real estate finance team, we support you every step of the way, ensuring the best deals that suit your investment goals. At TRUST, we put your trust at the heart of our priorities and work tirelessly to ensure the success of your real estate investments.",
       Our_Goal:
-        "Our Goal: At Dar Al Sondos, we strive to be the first choice for realizing people's dreams of owning their own homes, and to be a reliable partner that contributes to building a sustainable and prosperous society through innovative financing solutions that meet the needs of our customers.",
+        "Our Goal: At TRUST, we strive to be the first choice for realizing people's dreams of owning their own homes, and to be a reliable partner that contributes to building a sustainable and prosperous society through innovative financing solutions that meet the needs of our customers.",
       YourـFinancingـAwaits: "Your Financing Awaits",
       Experts: "Experts",
       Owner_Name: "Hussam Alnahit",
-      CEOـofـDarـAlSondos: "CEO of Dar Al-Sondos",
+      CEOـofـDarـAlSondos: "CEO of TRUST",
     },
     page_project: {
       Developing_a_residential: "Developing a residential complex.",

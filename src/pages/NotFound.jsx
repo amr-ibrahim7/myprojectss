@@ -6,17 +6,17 @@ function NotFound({ translations, language }) {
   const metaTags =
     language === "en"
       ? {
-          title: "Page Not Found - Dar Al-Sundus Real Estate",
+          title: "Page Not Found - TRUST Real Estate",
           description:
-            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact Dar Al-Sundus Real Estate for assistance.",
+            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact TRUST Real Estate for assistance.",
           keywords:
-            "Page Not Found, Dar Al-Sundus Real Estate, Saudi Real Estate, Inquiries, Go Back to Home",
-          ogTitle: "Page Not Found - Dar Al-Sundus Real Estate",
+            "Page Not Found, TRUST Real Estate, Saudi Real Estate, Inquiries, Go Back to Home",
+          ogTitle: "Page Not Found - TRUST Real Estate",
           ogDescription:
-            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact Dar Al-Sundus Real Estate for assistance.",
-          twitterTitle: "Page Not Found - Dar Al-Sundus Real Estate",
+            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact TRUST Real Estate for assistance.",
+          twitterTitle: "Page Not Found - TRUST Real Estate",
           twitterDescription:
-            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact Dar Al-Sundus Real Estate for assistance.",
+            "Sorry, the page you're looking for doesn't exist. Please go back to the homepage or contact TRUST Real Estate for assistance.",
         }
       : {
           title: "الصفحة غير موجودة - تراست العقارية",

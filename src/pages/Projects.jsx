@@ -4,30 +4,30 @@ function Projects({ translations, language }) {
   const metaTags =
     language === "en"
       ? {
-          title: "Our Services - Dar Al-Sundus Real Estate",
+          title: "Our Services - TRUST Real Estate",
           description:
-            "Explore the wide range of innovative real estate financing services offered by Dar Al-Sundus to help you achieve your property goals in Saudi Arabia.",
+            "Explore the wide range of innovative real estate financing services offered by TRUST to help you achieve your property goals in Saudi Arabia.",
           keywords:
-            "Dar Al-Sundus, Real Estate Finance, Property Purchase, Financing Solutions, Services, Investors, Saudi Real Estate",
-          ogTitle: "Dar Al-Sundus Real Estate - Our Services",
+            "TRUST, Real Estate Finance, Property Purchase, Financing Solutions, Services, Investors, Saudi Real Estate",
+          ogTitle: "TRUST Real Estate - Our Services",
           ogDescription:
-            "Explore the services offered by Dar Al-Sundus to assist you in property financing, investments, and achieving your real estate goals in Saudi Arabia.",
-          twitterTitle: "Dar Al-Sundus Real Estate - Our Services",
+            "Explore the services offered by TRUST to assist you in property financing, investments, and achieving your real estate goals in Saudi Arabia.",
+          twitterTitle: "TRUST Real Estate - Our Services",
           twitterDescription:
-            "Explore the services offered by Dar Al-Sundus to assist you in property financing, investments, and achieving your real estate goals in Saudi Arabia.",
+            "Explore the services offered by TRUST to assist you in property financing, investments, and achieving your real estate goals in Saudi Arabia.",
         }
       : {
           title: "خدماتنا - شركة تراست العقارية",
           description:
-            "اكتشف مجموعة واسعة من الخدمات التمويلية العقارية المبتكرة التي تقدمها شركة دار السندس لمساعدتك في تحقيق أهدافك العقارية في السعودية.",
+            "اكتشف مجموعة واسعة من الخدمات التمويلية العقارية المبتكرة التي تقدمها شركة  تراست العقارية لمساعدتك في تحقيق أهدافك العقارية في السعودية.",
           keywords:
-            "شركة دار السندس, تمويل عقاري, شراء عقارات, حلول تمويلية, خدمات, مستثمرين, عقارات السعودية",
+            "شركة  تراست العقارية, تمويل عقاري, شراء عقارات, حلول تمويلية, خدمات, مستثمرين, عقارات السعودية",
           ogTitle: "شركة تراست العقارية - خدماتنا",
           ogDescription:
-            "اكتشف الخدمات التي تقدمها شركة دار السندس لمساعدتك في تمويل العقارات والاستثمار وتحقيق أهدافك العقارية في السعودية.",
+            "اكتشف الخدمات التي تقدمها شركة  تراست العقارية لمساعدتك في تمويل العقارات والاستثمار وتحقيق أهدافك العقارية في السعودية.",
           twitterTitle: "شركة تراست العقارية - خدماتنا",
           twitterDescription:
-            "اكتشف الخدمات التي تقدمها شركة دار السندس لمساعدتك في تمويل العقارات والاستثمار وتحقيق أهدافك العقارية في السعودية.",
+            "اكتشف الخدمات التي تقدمها شركة  تراست العقارية لمساعدتك في تمويل العقارات والاستثمار وتحقيق أهدافك العقارية في السعودية.",
         };
 
   return (
