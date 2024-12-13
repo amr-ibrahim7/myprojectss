@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 
 function MarqueeSwiper({ translations, language, data }) {
   const isRtl = language === "ar";
-  console.log(data.data);
   return (
     <div className="container py-12 xl:py-24 h-auto mx-auto">
       <div className="flex flex-col items-center justify-center">
