@@ -1,58 +1,10 @@
-// import React, { useContext, useEffect, useState } from "react";
-// import Loader from "../components/Loader";
-// import { LanguageContext } from "../context/LanguageContext";
-
-// function Privacy() {
-//   const { language, translations, fetchDynamicData } =
-//     useContext(LanguageContext);
-//   const [privacyData, setPrivacyData] = useState(null);
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const loadPrivacyData = async () => {
-//       try {
-//         setIsLoading(true);
-//         const data = await fetchDynamicData("privacy", language);
-//         setPrivacyData(data);
-//         setError(null);
-//       } catch (error) {
-//         console.error("Error loading privacy data:", error);
-//         setError("حدث خطأ أثناء تحميل بيانات الخصوصية");
-//       } finally {
-//         setIsLoading(false);
-//       }
-//     };
-
-//     loadPrivacyData();
-//   }, [language]);
-
-//   if (isLoading) return <Loader />;
-//   if (error) return <div>{error}</div>;
-//   return (
-//     <div>
-//       <h1>{translations.pages.page_privacy.HowـHandleـPersonal}</h1>
-//       {privacyData && (
-//         <div className="privacy-content">
-//           {privacyData.data.split("\n").map((paragraph, index) => (
-//             <p key={index} className="privacy-paragraph">
-//               {paragraph}
-//             </p>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Privacy;
-
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import MetaTags from "/src/components/MetaTags.jsx";
 
-const Privacy = ({ translations, language }) => {
+const Privacy = ({ translations, language, fetchDynamicData }) => {
   const isRtl = language === "ar";
   const metaTags =
     language === "en"
@@ -82,6 +34,25 @@ const Privacy = ({ translations, language }) => {
           twitterDescription:
             "تعرف على كيفية تعامل شركة تراست العقارية مع خصوصيتك وبياناتك الشخصية.",
         };
+
+  const { data: globalData, isLoading } = useQuery(
+    ["privacyData", language],
+    () => fetchDynamicData("privacy", language),
+    {
+      // خيارات إضافية
+      enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
+      onError: (error) => {
+        console.error("Error fetching global data", error);
+      },
+    }
+  );
+
+  // Custom Spinner Component
+  const CustomSpinner = () => (
+    <div className="flex justify-center items-center w-full py-16">
+      <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full" />
+    </div>
+  );
 
   return (
     <div>
@@ -115,7 +86,7 @@ const Privacy = ({ translations, language }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
           <div className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800">
             <h3 className="text-2xl text-primary font-bold mb-3">
               {translations.pages.page_privacy.HowـWeـUseـYourـData_q}
@@ -150,9 +121,22 @@ const Privacy = ({ translations, language }) => {
               {translations.pages.page_privacy.Your_Inquiries_Important_to_Us_a}
             </p>
           </div>
+        </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+          {globalData?.data.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800"
+            >
+              <h3 className="text-2xl text-primary font-bold mb-3">
+                {item.question}
+              </h3>
+              <p className="text-lg">{item.answer}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="my-16">
+        {/* <div className="my-16">
           <h3 className="text-2xl font-semibold text-center mb-4">
             {translations.pages.page_privacy.When_Share_Data_q}
           </h3>
@@ -169,9 +153,9 @@ const Privacy = ({ translations, language }) => {
           <p className="text-lg text-center pb-4">
             {translations.pages.page_privacy.Your_Rights_Access_a}
           </p>
-        </div>
+        </div> */}
 
-        <div className="text-center my-8">
+        <div className="text-center my-12">
           <Link to="/">
             <Button className="inline-flex items-center px-8 py-3 text-white rounded-lg shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
               {translations.pages.page_privacy.Go_Home}

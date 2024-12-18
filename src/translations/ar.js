@@ -139,7 +139,7 @@ export default {
         { name: "احسب تمويلك", path: "/financing" },
         // { name: "المدونة", path: "/blog" },
         { name: "المعلومات", path: "/about-us" },
-        { name: "الأسئلة الشائعة", path: "/faq" },
+        { name: "الأسئلة الشائعة", path: "/#faq" },
         { name: "الدعم", path: "/contact-us" },
       ],
     },

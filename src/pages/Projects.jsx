@@ -1,6 +1,7 @@
 import React from "react";
+import { useQuery } from "react-query";
 import MetaTags from "/src/components/MetaTags.jsx";
-function Projects({ translations, language }) {
+function Projects({ translations, language, fetchDynamicData }) {
   const metaTags =
     language === "en"
       ? {
@@ -30,8 +31,28 @@ function Projects({ translations, language }) {
             "اكتشف الخدمات التي تقدمها شركة  تراست العقارية لمساعدتك في تمويل العقارات والاستثمار وتحقيق أهدافك العقارية في السعودية.",
         };
 
+  const { data: globalData, isLoading } = useQuery(
+    ["serviceData", language],
+    () => fetchDynamicData("intro-services", language),
+    {
+      // خيارات إضافية
+      enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
+      onError: (error) => {
+        console.error("Error fetching global data", error);
+      },
+    }
+  );
+
+  // Custom Spinner Component
+  const CustomSpinner = () => (
+    <div className="flex justify-center items-center w-full py-16">
+      <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full" />
+    </div>
+  );
+
   return (
     <div>
+      {/* {isLoading && <CustomSpinner />} */}
       <MetaTags
         title={metaTags.title}
         description={metaTags.description}
@@ -48,95 +69,37 @@ function Projects({ translations, language }) {
       </div>
 
       <div className="container grid lg:grid-cols-2 gap-8 py-8 mx-auto">
-        {/* Project 1 */}
-        <div
-          className="relative overflow-hidden rounded-xl group"
-          onClick={() => (window.location.href = "#مشروع التطوير١")}
-        >
-          <div>
-            <img
-              src="/image/project11.webp"
-              width={480}
-              height={380}
-              alt="صورة لمشروع: مشروع تطوير مجمع سكني"
-              className="w-full"
-            />
-          </div>
-          <div
-            className={`absolute bottom-0 bg-white/90 dark:bg-black/40 flex-col items-center justify-end w-96 gap-32 p-12 text-xl transition duration-300 ease-in-out translate-y-full from-transparent to-black group-hover:translate-y-0 ${
-              language === "en" ? "left-0" : "right-0"
-            }`}
-          >
-            <h1 className="text-2xl font-semibold">
-              {translations.pages.page_project.Developing_a_residential}
-            </h1>
-            <p className="py-4">
-              {translations.pages.page_project.Developingـanـintegrated}
-            </p>
-          </div>
-        </div>
-
-        {/* Project 2 */}
-        <div
-          className="relative overflow-hidden rounded-xl group"
-          onClick={() => (window.location.href = "#مشروع التطوير٢")}
-        >
-          <div>
-            <img
-              src="/image/mall.webp"
-              width={480}
-              height={380}
-              alt="صورة لمشروع: مشروع إنشاء مركز تجاري"
-              className="w-full"
-            />
-          </div>
-          <div
-            className={`absolute bottom-0 bg-white/90 dark:bg-black/40 flex-col items-center justify-end w-96 gap-32 p-12 text-xl transition duration-300 ease-in-out translate-y-full from-transparent to-black group-hover:translate-y-0 ${
-              language === "en" ? "left-0" : "right-0"
-            }`}
-          >
-            <h1 className="text-2xl font-semibold">
-              {translations.pages.page_project.Shopsـdevelopment}
-            </h1>
-            <p className="py-4">
-              {translations.pages.page_project.Weـdesigned}
-            </p>
-          </div>
-        </div>
-
-        {/* Project 3 */}
-        <div
-          className="relative overflow-hidden rounded-xl group"
-          onClick={() => (window.location.href = "#مشروع التطوير٣")}
-        >
-          <div>
-            <img
-              src="/image/project22.webp"
-              width={480}
-              height={380}
-              alt="صورة لمشروع: مشروع إعادة تأهيل مبنى تاريخي"
-              className="w-full"
-            />
-          </div>
-          <div
-            className={`absolute bottom-0 bg-white/90 dark:bg-black/40 flex-col items-center justify-end w-96 gap-32 p-12 text-xl transition duration-300 ease-in-out translate-y-full from-transparent to-black group-hover:translate-y-0 ${
-              language === "en" ? "left-0" : "right-0"
-            }`}
-          >
-            <h1 className="text-2xl font-semibold">
-              {translations.pages.page_project.Rehabilitationـhistoric}
-            </h1>
-            <p className="py-4">
-              {
-                translations.pages.page_project
-                  .RehabilitatingـAhistoricـbuilding
-              }
-            </p>
-          </div>
-        </div>
+        {isLoading ? (
+          <CustomSpinner />
+        ) : (
+          globalData.data?.map((service) => (
+            <div
+              key={service.id}
+              className="relative overflow-hidden rounded-xl group"
+              onClick={() => (window.location.href = `#service-${service.id}`)}
+            >
+              <div>
+                <img
+                  src={service.image}
+                  width={480}
+                  height={380}
+                  alt={`صورة لخدمة: ${service.title}`}
+                  className="w-full"
+                />
+              </div>
+              <div
+                className={`absolute bottom-0 bg-white/90 dark:bg-black/40 flex-col items-center justify-end w-96 gap-32 p-12 text-xl transition duration-300 ease-in-out translate-y-full from-transparent to-black group-hover:translate-y-0 ${
+                  language === "en" ? "left-0" : "right-0"
+                }`}
+              >
+                <h1 className="text-2xl font-semibold">{service.title}</h1>
+                <p className="py-4">{service.description}</p>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
 }
-
 export default Projects;

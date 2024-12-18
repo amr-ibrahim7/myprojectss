@@ -10,49 +10,10 @@ import { desVariants, tagVariants, tittleVariants } from "../utills/animation";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const HeroSection = ({ translations, language }) => {
-  const isRtl = language === "ar";
+const HeroSection = ({ translations, language, data }) => {
+  // const isRtl = language === "ar";
   const navigate = useNavigate();
   const [shouldAnimate, setShouldAnimate] = useState(false);
-
-  // الشرائح باللغة العربية والإنجليزية
-  const slidersAr = [
-    {
-      id: 1,
-      image: "/image/backgroundlight.webp",
-      title: "تمويل عقاري لبناء منزل يعكس أسلوبك الشخصي",
-      description:
-        "نقدم حلول تمويل مبتكرة في المملكة، مما يتيح لك اختيار أفضل صفقات العقارات بأسعار تنافسية. اخط خطوتك الأولى نحو امتلاك منزل أحلامك اليوم مع خطط تمويل مرنة ومعدلات فائدة تنافسية.",
-    },
-    {
-      id: 2,
-      image: "/image/background.webp",
-      title: "حلول تمويل سكني مصممة خصيصًا لاحتياجاتك",
-      description:
-        "استكشف خيارات التمويل المتنوعة التي تناسب طموحاتك وميزانيتك. نسعى لتحويل حلمك في امتلاك منزل إلى واقع ملموس.",
-    },
-  ];
-
-  const slidersEn = [
-    {
-      id: 1,
-      image: "/image/backgroundlight.webp",
-      title:
-        "Mortgage financing to build a home that reflects your personal style",
-      description:
-        "We offer innovative mortgage solutions in the Kingdom, allowing you to choose from the best real estate deals at competitive prices. Take your first step toward owning your dream home today with flexible financing plans and competitive interest rates.",
-    },
-    {
-      id: 2,
-      image: "/image/background.webp",
-      title: "Tailored mortgage solutions for your unique needs",
-      description:
-        "Explore diverse financing options that match your aspirations and budget. We strive to turn your home ownership dream into a tangible reality.",
-    },
-  ];
-
-  // اختيار الشرائح بناءً على اللغة
-  const sliders = isRtl ? slidersAr : slidersEn;
 
   useEffect(() => {
     const animationTimeout = setTimeout(() => {
@@ -82,7 +43,7 @@ const HeroSection = ({ translations, language }) => {
       loop={true}
       className="relative h-[800px] lg:h-[700px]"
     >
-      {sliders.map((slide) => (
+      {data.data.sliders.map((slide) => (
         <SwiperSlide key={slide.id} className="relative">
           <div
             className="absolute inset-0 bg-cover bg-center"

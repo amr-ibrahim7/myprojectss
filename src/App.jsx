@@ -1,5 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Suspense, useContext, useEffect } from "react";
+import { useQuery } from "react-query";
+import { Route, Routes, useLocation } from "react-router-dom";
+
 import BackToTopBtn from "./components/BackToTopBtn";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -26,27 +28,37 @@ const ThankYou = React.lazy(() => import("/src/pages/ThankYou.jsx"));
 // const Blog = React.lazy(() => import("/src/pages/Blog.jsx"));
 
 function App() {
-  const [globalData, setGlobalData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { language, translations, fetchDynamicData } =
     useContext(LanguageContext);
   const metaTags = getMetaTags(language);
+  const location = useLocation();
 
-  useEffect(() => {
-    async function fetchAllData() {
-      try {
-        setIsLoading(true);
-        const homeData = await fetchDynamicData("home", language);
-        setGlobalData(homeData);
-      } catch (error) {
+  const { data: globalData, isLoading } = useQuery(
+    ["homeData", language],
+    () => fetchDynamicData("home", language),
+    {
+      enabled: !!language,
+      onError: (error) => {
         console.error("Error fetching global data", error);
-      } finally {
-        setIsLoading(false);
+      },
+    }
+  );
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  // Scroll to specific section if hash is present
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100); // تأخير بسيط
       }
     }
-
-    fetchAllData();
-  }, [language]);
+  }, [location]);
 
   if (isLoading) {
     return (
@@ -57,48 +69,58 @@ function App() {
       </ThemeProvider>
     );
   }
+
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <SEO metaTags={metaTags} />
       <Header translations={translations} language={language} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Template>
-              <MainContent
-                translations={translations}
-                language={language}
-                data={globalData}
-              />
-            </Template>
-          }
-        />
-        <Route
-          path="/about-us"
-          element={
-            <Template>
-              <About translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="/our-service"
-          element={
-            <Template>
-              <Projects translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="/contact-us"
-          element={
-            <Template>
-              <Contact translations={translations} language={language} />
-            </Template>
-          }
-        />
-        {/* <Route
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Template>
+                <MainContent
+                  translations={translations}
+                  language={language}
+                  data={globalData}
+                />
+              </Template>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <Template>
+                <About
+                  translations={translations}
+                  language={language}
+                  fetchDynamicData={fetchDynamicData}
+                />
+              </Template>
+            }
+          />
+          <Route
+            path="/our-service"
+            element={
+              <Template>
+                <Projects
+                  translations={translations}
+                  language={language}
+                  fetchDynamicData={fetchDynamicData}
+                />
+              </Template>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <Template>
+                <Contact translations={translations} language={language} />
+              </Template>
+            }
+          />
+          {/* <Route
           path="/blog"
           element={
             <Template>
@@ -106,53 +128,63 @@ function App() {
             </Template>
           }
         /> */}
-        <Route
-          path="/financing"
-          element={
-            <Template>
-              <Financing translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <Template>
-              <Terms translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="/privacy-policy"
-          element={
-            <Template>
-              <Privacy translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="/thank-you"
-          element={
-            <Template>
-              <ThankYou translations={translations} language={language} />
-            </Template>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Template>
-              <NotFound translations={translations} language={language} />
-            </Template>
-          }
-        />
-      </Routes>
+          <Route
+            path="/financing"
+            element={
+              <Template>
+                <Financing translations={translations} language={language} />
+              </Template>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <Template>
+                <Terms
+                  translations={translations}
+                  language={language}
+                  fetchDynamicData={fetchDynamicData}
+                />
+              </Template>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <Template>
+                <Privacy
+                  translations={translations}
+                  language={language}
+                  fetchDynamicData={fetchDynamicData}
+                />
+              </Template>
+            }
+          />
+          <Route
+            path="/thank-you"
+            element={
+              <Template>
+                <ThankYou translations={translations} language={language} />
+              </Template>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Template>
+                <NotFound translations={translations} language={language} />
+              </Template>
+            }
+          />
+        </Routes>
+      </Suspense>
       <BackToTopBtn language={language} />
       <WhatsAppIcon data={globalData} language={language} />
       <Footer
         data={globalData}
         translations={translations}
         language={language}
+        // handleFAQNavigation={handleFAQNavigation}
       />
     </ThemeProvider>
   );

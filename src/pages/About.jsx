@@ -2,17 +2,31 @@ import { desVariants, tagVariants, tittleVariants } from "@/utills/animation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { TbArrowUpLeft, TbArrowUpRight } from "react-icons/tb";
+// import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import MetaTags from "../components/MetaTags";
 import TeamMember from "../components/TeamMember";
 import { Button } from "../components/ui/button";
-function About({ translations, language }) {
+function About({ translations, language, fetchDynamicData }) {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end end"],
   });
+
+  // استخدام useQuery لجلب البيانات
+  // const { data: globalData, isLoading } = useQuery(
+  //   ["serviceData", language],
+  //   () => fetchDynamicData("intro-services", language),
+  //   {
+  //     // خيارات إضافية
+  //     enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
+  //     onError: (error) => {
+  //       console.error("Error fetching global data", error);
+  //     },
+  //   }
+  // );
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const arrowIcon =
@@ -140,14 +154,14 @@ function About({ translations, language }) {
                 variants={tittleVariants}
               />
             </div> */}
-            <div className="flex justify-center lg:col-span-3">
+            {/* <div className="flex justify-center lg:col-span-3">
               <TeamMember
                 name={translations.pages.page_about.Owner_Name}
                 image="/image/ceo.jpg"
                 description={translations.pages.page_about.CEOـofـDarـAlSondos}
                 variants={desVariants}
               />
-            </div>
+            </div> */}
             {/* <div className="hidden">
               <TeamMember
                 name="فاطمة الزهراء"

@@ -141,7 +141,7 @@ We believe building your dream home requires a clear vision and exceptional expe
         { name: "CALCULATE YOUR FINANCING", path: "/financing" },
         // { name: "BLOG", path: "/blog" },
         { name: "INFORMATION", path: "/about-us" },
-        { name: "FAQ/RETURN", path: "/faq" },
+        { name: "FAQ/RETURN", path: "/#faq" },
         { name: "SUPPORT", path: "/contact-us" },
       ],
     },

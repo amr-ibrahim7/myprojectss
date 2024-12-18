@@ -9,7 +9,11 @@ import MarqueeSwiper from "./MarqueeSwiper";
 function MainContent({ translations, language, data }) {
   return (
     <>
-      <HeroSection translations={translations} language={language} />
+      <HeroSection
+        translations={translations}
+        language={language}
+        data={data}
+      />
       <MarqueeSwiper
         translations={translations}
         language={language}

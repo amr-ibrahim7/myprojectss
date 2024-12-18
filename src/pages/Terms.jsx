@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import MetaTags from "/src/components/MetaTags.jsx";
 
-const Terms = ({ translations, language }) => {
+const Terms = ({ translations, language, fetchDynamicData }) => {
   const metaTags =
     language === "en"
       ? {
@@ -32,6 +33,25 @@ const Terms = ({ translations, language }) => {
           twitterDescription:
             "تعرّف على الشروط والأحكام الخاصة بشركة تراست العقارية.",
         };
+
+  const { data: globalData, isLoading } = useQuery(
+    ["termsData", language],
+    () => fetchDynamicData("terms", language),
+    {
+      // خيارات إضافية
+      enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
+      onError: (error) => {
+        console.error("Error fetching global data", error);
+      },
+    }
+  );
+
+  // Custom Spinner Component
+  const CustomSpinner = () => (
+    <div className="flex justify-center items-center w-full py-16">
+      <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full" />
+    </div>
+  );
 
   return (
     <div>
