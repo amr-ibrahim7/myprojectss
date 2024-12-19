@@ -46,7 +46,7 @@ const Privacy = ({ translations, language, fetchDynamicData }) => {
       },
     }
   );
-  console.log(globalData);
+  // console.log(globalData);
   // Custom Spinner Component
   const CustomSpinner = () => (
     <div className="flex justify-center items-center w-full py-16">
@@ -85,6 +85,43 @@ const Privacy = ({ translations, language, fetchDynamicData }) => {
             {translations.pages.page_privacy.Weـtakeـprivacy}
           </p>
         </div>
+
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800">
+            <h3 className="text-2xl text-primary font-bold mb-3">
+              {translations.pages.page_privacy.HowـWeـUseـYourـData_q}
+            </h3>
+            <p className="text-lg">
+              {translations.pages.page_privacy.HowـWeـUseـYourـData_a}
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800">
+            <h3 className="text-2xl text-primary font-bold mb-3">
+              {translations.pages.page_privacy.Data_Protection_q}
+            </h3>
+            <p className="text-lg">
+              {translations.pages.page_privacy.Data_Protection_a}
+            </p>
+          </div>
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800">
+            <h3 className="text-2xl text-primary font-bold mb-3">
+              {translations.pages.page_privacy.Reviewing_Privacy_Policy_q}
+            </h3>
+            <p className="text-lg">
+              {translations.pages.page_privacy.Reviewing_Privacy_Policy_a}
+            </p>
+          </div>
+          <div className="bg-white dark:bg-[#1a1a1a] rounded-lg shadow-lg p-6 dark:shadow-lg dark:shadow-gray-800">
+            <h3 className="text-2xl text-primary font-bold mb-3">
+              {" "}
+              {translations.pages.page_privacy.Your_Inquiries_Important_to_Us_q}
+            </h3>
+            <p className="text-lg">
+              {translations.pages.page_privacy.Your_Inquiries_Important_to_Us_a}
+            </p>
+          </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
           {globalData?.data.map((item) => (
             <div
@@ -98,6 +135,26 @@ const Privacy = ({ translations, language, fetchDynamicData }) => {
             </div>
           ))}
         </div>
+
+        {/* <div className="my-16">
+          <h3 className="text-2xl font-semibold text-center mb-4">
+            {translations.pages.page_privacy.When_Share_Data_q}
+          </h3>
+          <p className="text-lg text-center pb-4">
+            {translations.pages.page_privacy.When_Share_Data_a}
+          </p>
+        </div>
+
+        <div className="my-8">
+          <h3 className="text-2xl font-semibold text-center mb-4">
+            {" "}
+            {translations.pages.page_privacy.Your_Rights_Access_q}
+          </h3>
+          <p className="text-lg text-center pb-4">
+            {translations.pages.page_privacy.Your_Rights_Access_a}
+          </p>
+        </div> */}
+
         <div className="text-center my-12">
           <Link to="/">
             <Button className="inline-flex items-center px-8 py-3 text-white rounded-lg shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">

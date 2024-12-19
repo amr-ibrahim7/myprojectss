@@ -86,7 +86,19 @@ const Terms = ({ translations, language, fetchDynamicData }) => {
             <h3 className="text-xl text-primary font-bold mb-1">
               {translations.pages.page_terms.What_Are_the_Terms}
             </h3>
-            <ul className="pb-8 tracking-wide mt-6 space-y-2">
+            {isLoading ? (
+              <CustomSpinner />
+            ) : (
+              <ul className="pb-8 tracking-wide mt-6 space-y-4">
+                {globalData?.data?.map((item) => (
+                  <li key={item.id} className="flex items-start gap-2">
+                    <span className="min-w-[24px] font-bold">{item.id}.</span>
+                    <span>{item.title}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {/* <ul className="pb-8 tracking-wide mt-6 space-y-2">
               {translations.pages.page_terms.What_Are_the_Terms_Answer.map(
                 (item, index) => (
                   <li key={index}>{item}</li>
@@ -144,7 +156,7 @@ const Terms = ({ translations, language, fetchDynamicData }) => {
               ).map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
 

@@ -2,11 +2,12 @@ import { desVariants, tagVariants, tittleVariants } from "@/utills/animation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { TbArrowUpLeft, TbArrowUpRight } from "react-icons/tb";
-// import { useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import MetaTags from "../components/MetaTags";
-import TeamMember from "../components/TeamMember";
+// import TeamMember from "../components/TeamMember";
 import { Button } from "../components/ui/button";
+
 function About({ translations, language, fetchDynamicData }) {
   const ref = useRef(null);
 
@@ -16,17 +17,21 @@ function About({ translations, language, fetchDynamicData }) {
   });
 
   // استخدام useQuery لجلب البيانات
-  // const { data: globalData, isLoading } = useQuery(
-  //   ["serviceData", language],
-  //   () => fetchDynamicData("intro-services", language),
-  //   {
-  //     // خيارات إضافية
-  //     enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
-  //     onError: (error) => {
-  //       console.error("Error fetching global data", error);
-  //     },
-  //   }
-  // );
+  const {
+    data: globalData,
+    isLoading,
+    isError,
+  } = useQuery(
+    ["aboutData", language],
+    () => fetchDynamicData("about-us", language),
+    {
+      // خيارات إضافية
+      enabled: !!language, // تشغيل الفيتش فقط عند وجود اللغة
+      onError: (error) => {
+        console.error("Error fetching global data", error);
+      },
+    }
+  );
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const arrowIcon =
@@ -35,7 +40,7 @@ function About({ translations, language, fetchDynamicData }) {
     ) : (
       <TbArrowUpLeft className="w-5 h-5 ml-2" />
     );
-  // meta tags based on language
+
   const metaTags =
     language === "en"
       ? {
@@ -65,6 +70,13 @@ function About({ translations, language, fetchDynamicData }) {
             "نحن نقدم حلول تمويلية مبتكرة لتسهيل عملية شراء العقارات وتحقيق أهدافك.",
         };
 
+  // Custom Spinner Component
+  const CustomSpinner = () => (
+    <div className="flex justify-center items-center w-full py-16">
+      <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full" />
+    </div>
+  );
+
   return (
     <div>
       <MetaTags
@@ -76,6 +88,7 @@ function About({ translations, language, fetchDynamicData }) {
         twitterTitle={metaTags.twitterTitle}
         twitterDescription={metaTags.twitterDescription}
       />
+
       <div className="bg-[url('/image/whoweare.webp')] bg-center bg-cover">
         <h1 className="container py-32 text-6xl font-bold text-black tracking-widest text-center lg:py-64">
           {translations.pages.page_about.Whos}
@@ -102,76 +115,42 @@ function About({ translations, language, fetchDynamicData }) {
           </motion.p>
         </div>
 
-        <div className="items-center lg:flex gap-x-8 md:mr-9">
-          {/* right section */}
-          <motion.div style={{ scale }} ref={ref} className="w-full">
-            <img src="/image/About22.webp" width={700} height={700} />
-          </motion.div>
-          {/* left section */}
-          <motion.div
-            initial="offscreen"
-            whileInView={"onscreen"}
-            variants={tagVariants}
-          >
-            <p className="pb-8 tracking-wide mt-6">
-              {translations.pages.page_about.At_Dar_AlSondos}
-              <br /> <br />
-              {translations.pages.page_about.We_act}
-              <br /> <br />
-              <span className="text-xl font-extrabold tracking-tight">
-                {translations.pages.page_about.Our_Goal}
-              </span>
-            </p>
-            <Link to="/financing">
-              <Button className="inline-flex items-center px-8 py-3 shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
-                {translations.pages.page_about.YourـFinancingـAwaits}
-                {arrowIcon}
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
+        {isLoading ? (
+          <CustomSpinner />
+        ) : isError ? (
+          <p>هناك خطأ في جلب البيانات.</p>
+        ) : (
+          <div className="items-center lg:flex gap-x-8 md:mr-9">
+            {/* right section */}
+            <motion.div style={{ scale }} ref={ref} className="w-full">
+              <img src="/image/About22.webp" width={700} height={700} />
+            </motion.div>
+            {/* left section */}
+            <motion.div
+              initial="offscreen"
+              whileInView={"onscreen"}
+              variants={tagVariants}
+            >
+              <p className="pb-8 tracking-wide mt-6">
+                {globalData.data} {/* عرض الداتا المستلمة هنا */}
+                <br /> <br />
+                <span className="text-xl font-extrabold tracking-tight">
+                  {translations.pages.page_about.Our_Goal}
+                </span>
+              </p>
+              <Link to="/financing">
+                <Button className="inline-flex items-center px-8 py-3 shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
+                  {translations.pages.page_about.YourـFinancingـAwaits}
+                  {arrowIcon}
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        )}
 
         {/* team section */}
 
-        <div className="lg:py-20">
-          <div className="pt-8 pb-4">
-            <motion.h1
-              initial="offscreen"
-              whileInView={"onscreen"}
-              variants={tittleVariants}
-              className="text-4xl font-bold tracking-wider text-center"
-            >
-              {translations.pages.page_about.Experts}
-            </motion.h1>
-          </div>
-
-          <div className="grid py-8 gap-20 lg:grid-cols-3 mr-9">
-            {/* <div className="hidden">
-              <TeamMember
-                name="حسام النحيط"
-                image="/image/ceo.jpg"
-                description="الإبداع هو القدرة على توليد أو إنشاء أو اكتشاف أفكار وحلول وإمكانيات جديدة"
-                variants={tittleVariants}
-              />
-            </div> */}
-            {/* <div className="flex justify-center lg:col-span-3">
-              <TeamMember
-                name={translations.pages.page_about.Owner_Name}
-                image="/image/ceo.jpg"
-                description={translations.pages.page_about.CEOـofـDarـAlSondos}
-                variants={desVariants}
-              />
-            </div> */}
-            {/* <div className="hidden">
-              <TeamMember
-                name="فاطمة الزهراء"
-                image="/image/profile3.jpg"
-                description="الإبداع هو القدرة على توليد أو إنشاء أو اكتشاف أفكار وحلول وإمكانيات جديدة"
-                variants={tagVariants}
-              />
-            </div> */}
-          </div>
-        </div>
+        <div className="lg:py-20"></div>
       </div>
     </div>
   );

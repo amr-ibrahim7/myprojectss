@@ -138,9 +138,9 @@ export default {
       services_list: [
         { name: "احسب تمويلك", path: "/financing" },
         // { name: "المدونة", path: "/blog" },
-        { name: "المعلومات", path: "/about-us" },
+        // { name: "المعلومات", path: "/about-us" },
         { name: "الأسئلة الشائعة", path: "/#faq" },
-        { name: "الدعم", path: "/contact-us" },
+        // { name: "الدعم", path: "/contact-us" },
       ],
     },
     socialsSite: {

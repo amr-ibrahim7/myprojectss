@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FaFacebook, FaInstagram, FaSnapchat, FaTiktok } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { LuPhoneCall } from "react-icons/lu";
