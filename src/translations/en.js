@@ -245,10 +245,10 @@ We believe building your dream home requires a clear vision and exceptional expe
     },
     page_privacy: {
       PrivacyـPolicy: "Privacy Policy",
-      HowـHandleـPersonal: "How We Handle Your Personal Data",
+      HowـHandleـPersonal:
+        "An Overview of Real Estate Policies in Saudi Arabia",
       Weـtakeـprivacy:
-        "We take your privacy very seriously. Please read our policy carefully to understand how we collect, use, and protect your personal data.",
-      HowـWeـUseـYourـData_q: "How We Use Your Data",
+        "We place great importance on regulating the real estate market. Explore our policies to understand how real estate is managed and developed in the Kingdom.",
       HowـWeـUseـYourـData_a:
         "We use your data to enhance your experience and provide better services. We may collect information regarding your preferences or personal details as part of our services",
       Data_Protection_q: "Data Protection",

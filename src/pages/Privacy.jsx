@@ -46,7 +46,6 @@ const Privacy = ({ translations, language, fetchDynamicData }) => {
       },
     }
   );
-  console.log(globalData);
   // Custom Spinner Component
   const CustomSpinner = () => (
     <div className="flex justify-center items-center w-full py-16">
@@ -66,7 +65,7 @@ const Privacy = ({ translations, language, fetchDynamicData }) => {
         twitterDescription={metaTags.twitterDescription}
       />
 
-      <div className="bg-[url('/image/privacy.webp')]  bg-center bg-cover text-white">
+      <div className="bg-[url('/image/privacy11.webp')]  bg-center bg-cover text-white">
         <h1
           className={`container py-36 lg:text-5xl text-4xl font-bold tracking-wide xl:text-center ${
             isRtl ? "" : "xl:text-right"

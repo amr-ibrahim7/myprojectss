@@ -26,7 +26,7 @@ const FAQSection = ({ translations, language, data }) => {
           {/* Section Photo */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
             <img
-              src="/image/faaq.webp"
+              src="/image/fa.webp"
               alt="FAQ Illustration"
               className="rounded-lg shadow-lg w-full h-auto object-cover"
             />

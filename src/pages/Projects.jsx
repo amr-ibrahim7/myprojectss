@@ -62,7 +62,7 @@ function Projects({ translations, language, fetchDynamicData }) {
         twitterTitle={metaTags.twitterTitle}
         twitterDescription={metaTags.twitterDescription}
       />
-      <div className="bg-[url('/image/backgrondproject2.webp')] bg-center bg-cover">
+      <div className="bg-[url('/image/aboutp.webp')] bg-center bg-cover">
         <h1 className="container py-64 text-6xl font-bold tracking-widest text-white">
           {translations.pages.page_project.Our_projectss}
         </h1>

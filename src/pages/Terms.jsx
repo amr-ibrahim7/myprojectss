@@ -65,7 +65,7 @@ const Terms = ({ translations, language, fetchDynamicData }) => {
         twitterDescription={metaTags.twitterDescription}
       />
 
-      <div className="bg-[url('/image/terms1.webp')]  bg-center bg-cover">
+      <div className="bg-[url('/image/terms.webp')]  bg-center bg-cover">
         <h1 className="container py-32 text-6xl font-bold tracking-widest text-center lg:py-64 text-white">
           {translations.pages.page_terms.Terms_and_Conditions}
         </h1>
